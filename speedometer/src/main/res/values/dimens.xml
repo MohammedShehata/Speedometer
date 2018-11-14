@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="y_pivot">4dp</dimen>
+    <item name="angel_of_one_percent" format="float" type="dimen">2.4375</item>
+    <dimen name="arrow_margin_top">12dp</dimen>
+</resources>

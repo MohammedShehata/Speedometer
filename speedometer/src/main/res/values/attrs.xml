@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SpeedometerView">
+        <attr name="speedometerGraph" format="reference" />
+        <attr name="speedometerArrow" format="reference" />
+        <attr name="yPivot" format="dimension" />
+        <attr name="angelOfOnePercent" format="float" />
+        <attr name="arrowMarginTop" format="dimension" />
+    </declare-styleable>
+    <public />
+</resources>

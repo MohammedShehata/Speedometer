@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SpeedometerSample</string>
+    <string name="percentage">Percentage</string>
+    <string name="duration_per_angel">Duration per angel</string>
+    <string name="animate">Animate</string>
+    <string name="default_speedometer">Default Speedometer</string>
+    <string name="custom_speedometer">Custom Speedometer</string>
+    <string name="invalid_input_numbers">Invalid input numbers</string>
+</resources>
