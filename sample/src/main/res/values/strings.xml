@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SpeedometerSample</string>
+    <string name="app_name">Speedometer Example</string>
     <string name="percentage">Percentage</string>
     <string name="duration">Duration In Milliseconds</string>
     <string name="animate">Animate</string>
