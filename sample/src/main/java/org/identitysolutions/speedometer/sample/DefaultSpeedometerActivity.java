@@ -2,6 +2,7 @@ package org.identitysolutions.speedometer.sample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -20,6 +21,8 @@ public class DefaultSpeedometerActivity extends AppCompatActivity implements See
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getActivityLayout());
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mPercentageTextView = findViewById(R.id.txt_percentage);
         mDurationTextView = findViewById(R.id.txt_duration);
@@ -75,5 +78,16 @@ public class DefaultSpeedometerActivity extends AppCompatActivity implements See
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == android.R.id.home) {
+
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
