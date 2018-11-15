@@ -19,7 +19,7 @@ import org.identitysolutions.speedometer.utils.Config;
 public class SpeedometerView extends RelativeLayout {
 
     private static final String TAG = SpeedometerView.class.getSimpleName();
-    private static final int DEFAULT_DURATION_PER_PERCENTAGE = 25;
+    private static final int DEFAULT_DURATION_PER_ONE_PERCENTAGE = 25;
 
     private View mSpeedometerGraphLayout;
     private ImageView mSpeedometerArrowImageView;
@@ -92,9 +92,13 @@ public class SpeedometerView extends RelativeLayout {
         mSpeedometerArrowImageView.startAnimation(rotateAnimation);
     }
 
-    public synchronized void animatePercentage(final int percentage, final int durationPerPercentage) {
+    /**
+     * @param percentage to be represented from 0 to 100
+     * @param duration   the time to animate rotation in milliseconds
+     */
 
-        final int duration = percentage * durationPerPercentage;
+    public synchronized void animatePercentage(final int percentage, final int duration) {
+
         if (canAnimate()) {
 
             initSpeedometerArrowPosition();
@@ -113,7 +117,7 @@ public class SpeedometerView extends RelativeLayout {
 
     public synchronized void animatePercentage(int percentage) {
 
-        animatePercentage(percentage, DEFAULT_DURATION_PER_PERCENTAGE);
+        animatePercentage(percentage, percentage * DEFAULT_DURATION_PER_ONE_PERCENTAGE);
     }
 
     private synchronized void setCanAnimate(boolean canAnimate) {
