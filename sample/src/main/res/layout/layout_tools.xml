@@ -77,12 +77,11 @@
     </LinearLayout>
 
 
-    <Button
+    <android.support.v7.widget.AppCompatButton
         android:id="@+id/btn_animate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="@color/colorPrimary"
         android:text="@string/animate"
-        android:textColor="@android:color/white" />
+        android:theme="@style/Button.Primary" />
 </LinearLayout>
