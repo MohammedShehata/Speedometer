@@ -12,8 +12,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.btn_default_speedometer).setOnClickListener(this);
-        findViewById(R.id.btn_custom_speedometer).setOnClickListener(this);
+        findViewById(R.id.layout_example_1).setOnClickListener(this);
+        findViewById(R.id.layout_example_2).setOnClickListener(this);
     }
 
     @Override
@@ -21,11 +21,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (v.getId()) {
 
-            case R.id.btn_default_speedometer:
+            case R.id.layout_example_1:
 
                 startActivity(new Intent(this, DefaultSpeedometerActivity.class));
                 break;
-            case R.id.btn_custom_speedometer:
+            case R.id.layout_example_2:
 
                 startActivity(new Intent(this, CustomSpeedometerActivity.class));
                 break;

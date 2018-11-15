@@ -6,4 +6,6 @@
     <string name="default_speedometer">Default Speedometer</string>
     <string name="custom_speedometer">Custom Speedometer</string>
     <string name="invalid_input_numbers">Invalid input numbers</string>
+    <string name="example_1">Example 1</string>
+    <string name="example_2">Example 2</string>
 </resources>

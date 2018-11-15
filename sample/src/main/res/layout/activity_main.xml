@@ -2,17 +2,52 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EBEBEB"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_default_speedometer"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/layout_example_1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/default_speedometer" />
+        android:background="@drawable/selector_exaple_layout"
+        android:orientation="vertical"
+        android:paddingTop="12dp">
 
-    <Button
-        android:id="@+id/btn_custom_speedometer"
-        android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="@string/example_1"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="#D4D4D4" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_example_2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/custom_speedometer" />
+        android:background="@drawable/selector_exaple_layout"
+        android:orientation="vertical"
+        android:paddingTop="12dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="@string/example_2"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="#D4D4D4" />
+    </LinearLayout>
+
+
 </LinearLayout>
