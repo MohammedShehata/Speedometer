@@ -1,28 +1,31 @@
 package org.identitysolutions.speedometer.sample;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import org.identitysolutions.speedometer.SpeedometerView;
 
-public class DefaultSpeedometerActivity extends AppCompatActivity {
+public class DefaultSpeedometerActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
 
-    private EditText mPercentageEditText;
-    private EditText mDurationPerAngelEditText;
+    private TextView mPercentageTextView;
+    private TextView mDurationTextView;
     private SpeedometerView mSpeedometerView;
+    private SeekBar mPercentageSeekBar;
+    private SeekBar mDurationSeekBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getActivityLayout());
 
-        mPercentageEditText = findViewById(R.id.edit_text_percentage);
-        mDurationPerAngelEditText = findViewById(R.id.edit_text_duration_per_angel);
+        mPercentageTextView = findViewById(R.id.txt_percentage);
+        mDurationTextView = findViewById(R.id.txt_duration);
+        mPercentageSeekBar = findViewById(R.id.seekBar_percentage);
+        mDurationSeekBar = findViewById(R.id.seekBar_duration);
+
         mSpeedometerView = findViewById(R.id.speedometerView);
 
         findViewById(R.id.btn_animate).setOnClickListener(new View.OnClickListener() {
@@ -32,6 +35,11 @@ public class DefaultSpeedometerActivity extends AppCompatActivity {
                 animateSpeedometer();
             }
         });
+
+        mDurationSeekBar.setOnSeekBarChangeListener(this);
+        mPercentageSeekBar.setOnSeekBarChangeListener(this);
+
+        animateSpeedometer();
     }
 
     protected int getActivityLayout() {
@@ -40,28 +48,32 @@ public class DefaultSpeedometerActivity extends AppCompatActivity {
 
     private void animateSpeedometer() {
 
-        try {
+        mSpeedometerView.animatePercentage(mPercentageSeekBar.getProgress(), mDurationSeekBar.getProgress());
+    }
 
-            int percentage = Integer.valueOf(mPercentageEditText.getText().toString());
-            int durationPerAngel = Integer.valueOf(mDurationPerAngelEditText.getText().toString());
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-            hideKeyboard();
+        switch (seekBar.getId()) {
+            case R.id.seekBar_duration:
 
-            mSpeedometerView.animatePercentage(percentage, durationPerAngel);
-        } catch (NumberFormatException e) {
+                mDurationTextView.setText(String.valueOf(progress));
+                break;
+            case R.id.seekBar_percentage:
 
-            Toast.makeText(this, getString(R.string.invalid_input_numbers), Toast.LENGTH_SHORT).show();
+                mPercentageTextView.setText(getString(R.string.progress_percentage, progress));
+                break;
+            default:
         }
     }
 
-    public void hideKeyboard() {
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
 
-
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        View currentFocus = getCurrentFocus();
-        if (currentFocus != null) {
-            imm.hideSoftInputFromWindow(currentFocus.getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN);
-        }
     }
 
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+
+    }
 }

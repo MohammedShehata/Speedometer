@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">SpeedometerSample</string>
     <string name="percentage">Percentage</string>
-    <string name="duration_per_angel">Duration per angel</string>
+    <string name="duration">Duration In Milliseconds</string>
     <string name="animate">Animate</string>
     <string name="default_speedometer">Default Speedometer</string>
     <string name="custom_speedometer">Custom Speedometer</string>
-    <string name="invalid_input_numbers">Invalid input numbers</string>
     <string name="example_1">Example 1</string>
     <string name="example_2">Example 2</string>
+    <string name="progress_percentage">%d%%</string>
 </resources>

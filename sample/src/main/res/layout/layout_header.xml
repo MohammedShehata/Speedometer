@@ -2,26 +2,87 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/edit_text_percentage"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/percentage"
-        android:inputType="number" />
+        android:layout_marginTop="20dp"
+        android:inputType="number"
+        android:paddingHorizontal="10dp"
+        android:text="@string/percentage"
+        android:textSize="15sp" />
 
-    <EditText
-        android:id="@+id/edit_text_duration_per_angel"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <SeekBar
+            android:id="@+id/seekBar_percentage"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:min="0"
+            android:progress="50" />
+
+        <TextView
+            android:id="@+id/txt_percentage"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:inputType="number"
+            android:paddingHorizontal="10dp"
+            android:text="50%"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/duration_per_angel"
-        android:inputType="number" />
+        android:inputType="number"
+        android:paddingHorizontal="10dp"
+        android:text="@string/duration"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <SeekBar
+            android:id="@+id/seekBar_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:max="2000"
+            android:min="0"
+            android:progress="1000" />
+
+        <TextView
+            android:id="@+id/txt_duration"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:inputType="number"
+            android:paddingHorizontal="10dp"
+            android:text="1000"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/btn_animate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/animate" />
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorPrimary"
+        android:text="@string/animate"
+        android:textColor="@android:color/white" />
 </LinearLayout>
