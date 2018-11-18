@@ -15,11 +15,11 @@ public class Config {
 
 
     private Context mContext;
-    private int graphResourceId;
-    private int arrowResourceId;
-    private float pivotY;
+    private int gaugeResourceId;
+    private int needleResourceId;
+    private float needlePivotY;
     private float angelOfOnePercentage;
-    private float arrowMarginTop;
+    private float needleMarginTop;
 
     public Config(Context context, AttributeSet attrs) {
 
@@ -29,11 +29,11 @@ public class Config {
                 R.styleable.SpeedometerView,
                 0, 0);
 
-        graphResourceId = typedArray.getResourceId(R.styleable.SpeedometerView_speedometerGraph, R.drawable.graph);
-        arrowResourceId = typedArray.getResourceId(R.styleable.SpeedometerView_speedometerArrow, R.drawable.speedometer_arrow);
-        pivotY = typedArray.getDimension(R.styleable.SpeedometerView_yPivot, getDimens(R.dimen.y_pivot));
+        gaugeResourceId = typedArray.getResourceId(R.styleable.SpeedometerView_speedometerGauge, R.drawable.speedometer_gauge);
+        needleResourceId = typedArray.getResourceId(R.styleable.SpeedometerView_speedometerNeedle, R.drawable.speedometer_needle);
+        needlePivotY = typedArray.getDimension(R.styleable.SpeedometerView_needleYPivot, getDimens(R.dimen.needle_y_pivot));
         angelOfOnePercentage = typedArray.getFloat(R.styleable.SpeedometerView_angelOfOnePercent, getFloatValue(R.dimen.angel_of_one_percent));
-        arrowMarginTop = typedArray.getDimension(R.styleable.SpeedometerView_arrowMarginTop, getDimens(R.dimen.arrow_margin_top));
+        needleMarginTop = typedArray.getDimension(R.styleable.SpeedometerView_needleMarginTop, getDimens(R.dimen.needle_margin_top));
     }
 
     private float getFloatValue(int resourceID) {
@@ -46,23 +46,23 @@ public class Config {
         return mContext.getResources().getDimension(dimenResourceId);
     }
 
-    public int getGraphResourceId() {
-        return graphResourceId;
+    public int getGaugeResourceId() {
+        return gaugeResourceId;
     }
 
-    public int getArrowResourceId() {
-        return arrowResourceId;
+    public int getNeedleResourceId() {
+        return needleResourceId;
     }
 
-    public float getPivotY() {
-        return pivotY;
+    public float getNeedlePivotY() {
+        return needlePivotY;
     }
 
     public float getAngelOfOnePercentage() {
         return angelOfOnePercentage;
     }
 
-    public float getArrowMarginTop() {
-        return arrowMarginTop;
+    public float getNeedleMarginTop() {
+        return needleMarginTop;
     }
 }

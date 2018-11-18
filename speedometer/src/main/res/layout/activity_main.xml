@@ -10,8 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         app:angelOfOnePercent="@dimen/angel_of_one_percent"
-        app:speedometerArrow="@drawable/speedometer_arrow"
-        app:speedometerGraph="@drawable/graph"
-        app:yPivot="@dimen/y_pivot" />
+        app:speedometerArrow="@drawable/speedometer_needle"
+        app:speedometerGraph="@drawable/speedometer_gauge"
+        app:yPivot="@dimen/needle_y_pivot" />
 
 </RelativeLayout>

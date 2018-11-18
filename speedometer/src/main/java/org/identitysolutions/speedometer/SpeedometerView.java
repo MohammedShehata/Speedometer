@@ -21,8 +21,8 @@ public class SpeedometerView extends RelativeLayout {
     private static final String TAG = SpeedometerView.class.getSimpleName();
     private static final int DEFAULT_DURATION_PER_ONE_PERCENTAGE = 25;
 
-    private View mSpeedometerGraphLayout;
-    private ImageView mSpeedometerArrowImageView;
+    private View mSpeedometerGaugeLayout;
+    private ImageView mSpeedometerNeedleImageView;
     private volatile boolean canAnimate;
     private AnimateSpeedometerTask animateSpeedometerTask;
     private float pivotXValue;
@@ -43,17 +43,17 @@ public class SpeedometerView extends RelativeLayout {
 
         canAnimate = false;
 
-        mSpeedometerGraphLayout = findViewById(R.id.layout_speedometer_graph);
-        mSpeedometerArrowImageView = findViewById(R.id.img_speedometer_arrow);
+        mSpeedometerGaugeLayout = findViewById(R.id.layout_speedometer_gauge);
+        mSpeedometerNeedleImageView = findViewById(R.id.img_speedometer_needle);
 
-        mSpeedometerArrowImageView.post(new Runnable() {
+        mSpeedometerNeedleImageView.post(new Runnable() {
             @Override
             public void run() {
-                Log.d(TAG, mSpeedometerArrowImageView.getHeight() + " - " + mSpeedometerArrowImageView.getWidth());
+                Log.d(TAG, mSpeedometerNeedleImageView.getHeight() + " - " + mSpeedometerNeedleImageView.getWidth());
                 setCanAnimate(true);
 
-                pivotXValue = mSpeedometerArrowImageView.getWidth() / 2.0f;
-                pivotYValue = mSpeedometerArrowImageView.getHeight() - config.getPivotY() * 1f;
+                pivotXValue = mSpeedometerNeedleImageView.getWidth() / 2.0f;
+                pivotYValue = mSpeedometerNeedleImageView.getHeight() - config.getNeedlePivotY() * 1f;
                 initSpeedometerArrowPosition();
 
                 if (animateSpeedometerTask != null) {
@@ -68,19 +68,19 @@ public class SpeedometerView extends RelativeLayout {
 
         config = new Config(getContext(), attrs);
 
-        mSpeedometerGraphLayout.setBackgroundResource(config.getGraphResourceId());
-        mSpeedometerArrowImageView.setImageResource(config.getArrowResourceId());
+        mSpeedometerGaugeLayout.setBackgroundResource(config.getGaugeResourceId());
+        mSpeedometerNeedleImageView.setImageResource(config.getNeedleResourceId());
 
-        LayoutParams layoutParams = (LayoutParams) mSpeedometerArrowImageView.getLayoutParams();
-        layoutParams.setMargins(0, (int) config.getArrowMarginTop(), 0, 0);
-        mSpeedometerArrowImageView.setLayoutParams(layoutParams);
+        LayoutParams layoutParams = (LayoutParams) mSpeedometerNeedleImageView.getLayoutParams();
+        layoutParams.setMargins(0, (int) config.getNeedleMarginTop(), 0, 0);
+        mSpeedometerNeedleImageView.setLayoutParams(layoutParams);
     }
 
     private void initSpeedometerArrowPosition() {
 
-        mSpeedometerArrowImageView.setPivotX(pivotXValue);
-        mSpeedometerArrowImageView.setPivotY(pivotYValue);
-        mSpeedometerArrowImageView.setRotation(-50f * config.getAngelOfOnePercentage());
+        mSpeedometerNeedleImageView.setPivotX(pivotXValue);
+        mSpeedometerNeedleImageView.setPivotY(pivotYValue);
+        mSpeedometerNeedleImageView.setRotation(-50f * config.getAngelOfOnePercentage());
     }
 
     private void rotateSpeedometerArrow(float percentage, long duration) {
@@ -89,7 +89,7 @@ public class SpeedometerView extends RelativeLayout {
                 pivotXValue, Animation.ABSOLUTE, pivotYValue);
         rotateAnimation.setDuration(duration);
         rotateAnimation.setFillAfter(true);
-        mSpeedometerArrowImageView.startAnimation(rotateAnimation);
+        mSpeedometerNeedleImageView.startAnimation(rotateAnimation);
     }
 
     /**
@@ -115,6 +115,11 @@ public class SpeedometerView extends RelativeLayout {
         }
     }
 
+    /**
+     * animate by default duration per one percentage * percentage
+     *
+     * @param percentage to be represented from 0 to 100
+     */
     public synchronized void animatePercentage(int percentage) {
 
         animatePercentage(percentage, percentage * DEFAULT_DURATION_PER_ONE_PERCENTAGE);

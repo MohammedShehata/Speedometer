@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/layout_speedometer_graph"
+    android:id="@+id/layout_speedometer_gauge"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_centerHorizontal="true">
 
     <ImageView
-        android:id="@+id/img_speedometer_arrow"
+        android:id="@+id/img_speedometer_needle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true" />
